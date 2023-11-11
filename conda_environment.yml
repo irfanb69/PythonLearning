@@ -1,0 +1,4 @@
+name: GruML_python_intro
+dependencies:
+  - python=3.9
+  - numpy
