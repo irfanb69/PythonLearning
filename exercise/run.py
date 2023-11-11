@@ -5,18 +5,21 @@ import numpy as np
 def add(a: float, b: float):
     """Add a to b and return result."""
     # TODO: Implement this method
+    return a + b
     raise NotImplementedError()
 
 
 def power(a: float, e: float):
     """Returns a to the power of e."""
     # TODO: Implement this method
+    return a ** e 
     raise NotImplementedError()
 
 
 def modulo(a: int, b: int):
     """Returns a modulo b."""
     # TODO: Implement this method
+    return a % b
     raise NotImplementedError()
 
 
@@ -24,24 +27,31 @@ def modulo(a: int, b: int):
 def string_len(string: str):
     """Returns length of string."""
     # TODO: Implement this method
+    return len(string)
     raise NotImplementedError()
 
 
 def char_at(string: str, i: int):
     """Returns character at position i of string."""
     # TODO: Implement this method
+    return string[i]
     raise NotImplementedError()
 
 
 def get_sub_string(string: str, start: int, end: int):
     """Returns substring from index start to end of string."""
     # TODO: Implement this method
+    return string[start:end]
     raise NotImplementedError()
 
 
 def contains_sub_string(string: str, sub_string: str):
     """Returns true if sub_string is part of string."""
-    # TODO: Implement this method
+    # TODO: Implement this method 
+    if sub_string in string:
+        return True
+    else:
+        return False
     raise NotImplementedError()
 
 
@@ -49,6 +59,7 @@ def get_string_date(day: int, month: int, year: int):
     """Returns the date as a string in the format DD-MM-YYYY.
     Example: 13-01-2020"""
     # TODO: Implement this method
+    return f"{day:02d}-{month:02d}-{year}"
     raise NotImplementedError()
 
 
@@ -56,6 +67,7 @@ def get_string_date(day: int, month: int, year: int):
 def list_len(a: list):
     """Returns the length of a list."""
     # TODO: Implement this method
+    return len(a)
     raise NotImplementedError()
 
 
@@ -63,12 +75,17 @@ def last_element(a: list):
     """Returns the last element of a list.
     The list won't be empty."""
     # TODO: Implement this method
+    return a[-1]
     raise NotImplementedError()
 
 
 def contains_element(a: list, e):
     """Returns True if e is an element of list a."""
     # TODO: Implement this method
+    if e in a:
+        return True
+    else: 
+        return False
     raise NotImplementedError()
 
 
@@ -76,6 +93,7 @@ def sum_(a: list):
     """Returns the sum of all elements of list a.
     List a only contains integers and floats."""
     # TODO: Implement this method
+    return sum(a)
     raise NotImplementedError()
 
 
@@ -83,6 +101,7 @@ def mean(a: list):
     """Returns the mean over all elements of list a.
     List a only contains integers and floats."""
     # TODO: Implement this method
+    return sum(a) / len(a)
     raise NotImplementedError()
 
 
@@ -92,12 +111,22 @@ def pairwise_add(a: list, b: list):
     List a and b have the same length.
     Hint: take a look at the in-built python function zip()"""
     # TODO: Implement this method
+    ab = []
+    for a, b in zip(a, b):
+        ab.append(a + b)
+    return ab    
     raise NotImplementedError()
 
 def third_reverse(a: list):
     """ Returns a list containing every third element but in inverted order.
     """
     # TODO: Implement this method
+    third_list = [] * len(a % 3)
+    for i, element in enumerate(a):
+        if i % 3 == 2:
+            third_list.append(a[i])
+    return third_list[::-1] # kehrt die liste um
+    # noch eine Möglichkeit: return reversed(third_list)
     raise NotImplementedError()
 
 
@@ -107,6 +136,10 @@ def np_pairwise_add(a: np.ndarray, b: np.ndarray):
     Numpy array a and b only contain integers and floats.
     Numpy array a and b have the same shape."""
     # TODO: Implement this method
+    usefullArray = np.zeros(len(a))
+    for i, (a_elem, b_elem) in zip(a, b): 
+        list.append(a_elem + b_elem)
+    return usefullArray    
     raise NotImplementedError()
 
 
@@ -114,6 +147,7 @@ def np_get_column_at(a: np.ndarray, i: int):
     """Returns the i-th column of the matrix a.
     a has at least 2 dimensions; shape (M, N, ...)"""
     # TODO: Implement this method
+    return a[:, i]
     raise NotImplementedError()
 
 
@@ -121,6 +155,10 @@ def np_index_reverse(a: np.ndarray, i: int):
     """ Returns a numpy array containing every i-th element but in inverted order.
     """
     # TODO: Implement this method
+    usefullArray = np.zeros(len(a))
+    for ii, element in enumerate(a):
+        if ii % i == i - 1:
+            usefullArray[] = 
     raise NotImplementedError()
 
 
