@@ -155,23 +155,34 @@ def np_index_reverse(a: np.ndarray, i: int):
     """ Returns a numpy array containing every i-th element but in inverted order.
     """
     # TODO: Implement this method
-    usefullArray = np.zeros(len(a))
+    usefullArray_length = len(a) // i # // ist für eine ganzzahl rückgabe
+    usefullArray = np.zeros(usefullArray_length)
+    k = 0
     for ii, element in enumerate(a):
         if ii % i == i - 1:
-            usefullArray[] = 
+            usefullArray[k] = element
+            k += 1
+    return usefullArray[::-1]       
     raise NotImplementedError()
 
 
 def np_mean(a: np.ndarray):
     """Returns the mean over all elements of numpy array a regardless of shape."""
     # TODO: Implement this method
+    mean_digit = 0
+    elements_in_array = 0
+    for element in a:
+        mean_digit += element
+        elements_in_array += 1
+    return mean_digit / elements_in_array
     raise NotImplementedError()
 
 
-def np_mean_per_row(a: np.ndarray):
+def np_mean_per_row(a: np.ndarray): # https://stackoverflow.com/questions/18688948/numpy-how-do-i-find-total-rows-in-a-2d-array-and-total-column-in-a-1d-array
     """Returns the mean for each row of matrix a.
     a has at least 2 dimensions; shape (M, N, ...)."""
     # TODO: Implement this method
+    return np.mean(a, axis=1)
     raise NotImplementedError()
 
 
@@ -179,6 +190,7 @@ def np_mean_per_column(a: np.ndarray):
     """Returns the mean for each column of matrix a.
     a has at least 2 dimensions; shape (M, N, ...)."""
     # TODO: Implement this method
+    return np.mean(a, axis=0)
     raise NotImplementedError()
 
 
@@ -186,6 +198,7 @@ def np_to_row_vector(a: np.ndarray):
     """Returns a numpy array of shape (1, N) where N is the number of elements in a.
     a will always be of shape (N)."""
     # TODO: Implement this method
+    return a.reshape(1, -1)
     raise NotImplementedError()
 
 
@@ -193,6 +206,7 @@ def np_row_vector_to_column_vector(a: np.ndarray):
     """Returns a numpy array of shape (N, 1).
      a will always be a row vector with shape (1, N)."""
     # TODO: Implement this method
+    return a.reshape(-1, 1)
     raise NotImplementedError()
 
 
@@ -200,6 +214,7 @@ def np_column_vector_to_row_vector(a: np.ndarray):
     """Returns a numpy array of shape (1, N).
     a will always be a row vector with shape (N, 1)."""
     # TODO: Implement this method
+    return a.reshape(1, -1)
     raise NotImplementedError()
 
 
@@ -209,6 +224,10 @@ def np_auto_column_row_vector_conversion(a: np.ndarray):
     a will always be of shape (N, 1) or (1, N).
     Hint: take a look at matrix operation transpose https://en.wikipedia.org/wiki/Transpose"""
     # TODO: Implement this method
+    if a.shape[0] == 1:  # Zeilenvektor zu Spaltenvektor
+        return a.reshape(-1, 1)
+    else:  # Spaltenvektor zu Zeilenvektor
+        return a.reshape(1, -1)
     raise NotImplementedError()
 
 
@@ -216,6 +235,7 @@ def np_dot_product(a: np.ndarray, b: np.ndarray):
     """Returns the scalar product (also called: dot product) of a and b.
     a and b are numpy arrays of shape (N)."""
     # TODO: Implement this method
+    return np.dot(a, b)
     raise NotImplementedError()
 
 
@@ -224,6 +244,7 @@ def np_matrix_product(a: np.ndarray, b: np.ndarray):
     a is a numpy array of shape (N, M).
     b is a numpy array of shape (M, N)."""
     # TODO: Implement this method
+    return np.matmul(a, b)
     raise NotImplementedError()
 
 
