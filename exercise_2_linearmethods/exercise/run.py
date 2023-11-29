@@ -7,19 +7,31 @@ def mse(y_prediction: np.ndarray, y: np.ndarray):
     """Returns the mean squared error for the predictions y_prediction and the real values y.
     y_prediction and y is of shape (N, 1)."""
     # TODO
+    mean_square = (y_prediction - y)**2
+    mse = mean_square.mean()
+    return mse
     raise NotImplementedError()
 
 
 def gradient_descent(X: np.ndarray, y: np.ndarray, iterations = 1000, learning_rate = 0.1, stopping_threshold = 1e-6):
-    """Returns the optimal bias b and weight w
+    """Returns the optimal bias b and weight       
+    ((( Zur Berechnung wird wie folgt vorgegangen
+1. Starte an einem zufälligen Punkt.
+2. Berechne die Vorhersage der Datenpunkte mit
+den aktuellen Modellgewichten.
+3. Gehe zum nächsten Punkt in Abhängigkeit der
+Learning Rate (Aktualisierung der
+Modellgewichte).
+4. Prüfe, ob das Minimum erreicht wurde.
+5. Wenn nein, gehe zu Schritt 2. Wenn ja, fertig. )))
     for given data set X of shape (N, 2) and target values y of shape (N, 1)"""
     # For the following implementation, we need the feature values and target values as arrays, each of shape (N)
     x = X[:,1]
     y = y[:,0]
 
     # STEP X: Initializing (random) weight, (random) bias, learning rate and iterations
-    current_weight = 1 # TODO: choose different/random value, if you want
-    current_bias = 1 # TODO: choose different/random value, if you want
+    current_weight = 8 # TODO: choose different/random value, if you want
+    current_bias = 3 # TODO: choose different/random value, if you want
     iterations = iterations
     learning_rate = learning_rate
 
@@ -35,7 +47,7 @@ def gradient_descent(X: np.ndarray, y: np.ndarray, iterations = 1000, learning_r
         ### STEP X: Updating the weights and bias values (calculating the next point)
 
         # Calculating predictions
-        y_prediction = 0 # TODO: Add formula here
+        y_prediction = current_weight * x+ current_bias # TODO: Add formula here
         # Calculating the current cost
         current_cost = mse(y_prediction, y)
  
@@ -45,7 +57,8 @@ def gradient_descent(X: np.ndarray, y: np.ndarray, iterations = 1000, learning_r
         # Calculating the derivatives
         weight_derivative = None # TODO: Add formula here
         bias_derivative = None # TODO: Add formula here
-         
+        
+        # ax + b a ist gewichtunv 
         # Calculating the new values
         current_weight = None # TODO: Add formula here
         current_bias = None # TODO: Add formula here
